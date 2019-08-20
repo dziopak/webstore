@@ -1,5 +1,4 @@
 import { createSelector } from "reselect";
-import { create } from "domain";
 
 const selectCart = state => state.cart;
 
@@ -11,6 +10,15 @@ export const selectCartItems = createSelector(
 export const selectCartVisible = createSelector(
   [selectCart],
   cart => cart.show
+);
+
+export const selectCartTotal = createSelector(
+  [selectCartItems],
+  cartItems =>
+    cartItems.reduce(
+      (total, cartItem) => total + cartItem.quantity * cartItem.price,
+      0
+    )
 );
 
 export const selectCartItemsCount = createSelector(
