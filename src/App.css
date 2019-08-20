@@ -1,0 +1,12 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  padding: 20px 60px;
+}
+
+a {
+  color: #000;
+  text-decoration: none;
+}
