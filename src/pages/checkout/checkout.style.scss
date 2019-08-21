@@ -16,8 +16,9 @@
   &__header-block {
     text-transform: capitalize;
     width: 23%;
+    text-align: center;
 
-    &:last-child {
+    &--short {
       width: 8%;
     }
   }
