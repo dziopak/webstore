@@ -5,7 +5,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
-import { persistorGate, PersistGate } from "redux-persist/integration/react";
+import { PersistGate } from "redux-persist/integration/react";
 
 import { Store, Persistor } from "./redux/store";
 import App from "./App";
