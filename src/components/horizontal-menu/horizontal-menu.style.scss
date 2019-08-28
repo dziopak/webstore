@@ -1,0 +1,27 @@
+.menu-horizontal {
+  transition: max-height 0.4s linear;
+  max-height: 76px;
+  margin: 0 7px 16px;
+  overflow: hidden;
+  border: 1px solid #000;
+
+  &--expand {
+    max-height: 200px;
+  }
+
+  &__main {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  &__item {
+    padding: 26px 20px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #d1d3d3;
+    }
+  }
+}

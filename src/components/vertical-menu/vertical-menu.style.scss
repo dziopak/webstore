@@ -1,0 +1,24 @@
+.menu-vertical {
+  width: 120px;
+  font-size: 0.8em;
+
+  &--hidden {
+    display: none;
+  }
+
+  &__list {
+    list-style: none;
+    padding: 10px 20px;
+  }
+
+  &__container {
+    display: flex;
+  }
+
+  &__item {
+    padding: 2px 0;
+    &--header {
+      font-weight: bold;
+    }
+  }
+}

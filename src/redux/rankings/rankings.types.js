@@ -1,0 +1,7 @@
+const rankingsActionTypes = {
+  BESTSELLERS_FETCH: "BESTSELLERS_FETCH",
+  BESTSELLERS_DID_FETCH: "BESTSELLERS_DID_FETCH",
+  BESTSELLERS_FETCH_FAIL: "BESTSELLERS_FETCH_FAIL"
+};
+
+export default rankingsActionTypes;

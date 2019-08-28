@@ -1,8 +1,8 @@
 import React from "react";
 import "./with-spinner.style.scss";
 
-const Spinner = Component => ({ isLoading, ...otherProps }) => {
-  return isLoading ? (
+const Spinner = Component => ({ isLoaded, ...otherProps }) => {
+  return !isLoaded ? (
     <div className="spinner">
       <div className="spinner__container"></div>
     </div>

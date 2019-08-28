@@ -12,6 +12,7 @@ import ShopPage from "./pages/shop/shop.component";
 import SignPage from "./pages/sign/sign.component";
 import CheckoutPage from "./pages/checkout/checkout.component";
 
+import HorizontalMenu from "./components/horizontal-menu/horizontal-menu.component";
 import Header from "./components/header/header.component";
 
 import "./App.css";
@@ -45,6 +46,7 @@ class App extends React.Component {
     return (
       <div>
         <Header />
+        <HorizontalMenu />
         <Switch>
           <Route path="/" exact={true} component={HomePage} />
           <Route path="/shop/checkout" exact component={CheckoutPage} />

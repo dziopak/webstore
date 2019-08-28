@@ -1,0 +1,7 @@
+const menuActionTypes = {
+  POSITIONS_FETCH: "POSITIONS_FETCH",
+  POSITIONS_DID_FETCH: "POSITIONS_DID_FETCH",
+  POSITIONS_FETCH_FAIL: "POSITIONS_FETCH_FAIL"
+};
+
+export default menuActionTypes;
