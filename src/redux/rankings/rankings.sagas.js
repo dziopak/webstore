@@ -1,4 +1,4 @@
-import { takeEvery, call, put } from "redux-saga/effects";
+import { takeLatest, call, put } from "redux-saga/effects";
 
 import { firestore } from "../../firebase/firebase.utils";
 import { bestsellersDidFetch, bestsellersFetchFail } from "./rankings.actions";
@@ -19,5 +19,8 @@ export function* bestsellersFetchAsync() {
 }
 
 export function* bestsellersFetch() {
-  yield takeEvery(rankingsActionTypes.BESTSELLERS_FETCH, bestsellersFetchAsync);
+  yield takeLatest(
+    rankingsActionTypes.BESTSELLERS_FETCH,
+    bestsellersFetchAsync
+  );
 }

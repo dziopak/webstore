@@ -1,4 +1,4 @@
-import { takeEvery, call, put } from "redux-saga/effects";
+import { takeLatest, call, put } from "redux-saga/effects";
 
 import { firestore } from "./../../firebase/firebase.utils";
 import { positionsDidFetch, positionsFetchFail } from "./menu.actions";
@@ -27,5 +27,5 @@ export function* positionsFetchAsync() {
 
 export function* positionsFetch() {
   console.log(menuActionTypes.POSITIONS_FETCH);
-  yield takeEvery(menuActionTypes.POSITIONS_FETCH, positionsFetchAsync);
+  yield takeLatest(menuActionTypes.POSITIONS_FETCH, positionsFetchAsync);
 }

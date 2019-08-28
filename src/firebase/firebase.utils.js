@@ -38,11 +38,6 @@ export const createUserProfile = async (userAuth, otherData) => {
   return userRef;
 };
 
-const provider = new firebase.auth.GoogleAuthProvider();
-provider.setCustomParameters({
-  prompt: "select_account"
-});
-
 export const convertCollectionsSnap = collections => {
   const result = collections.docs.map(doc => {
     const { title, items } = doc.data();
@@ -61,6 +56,10 @@ export const convertCollectionsSnap = collections => {
   }, {});
 };
 
-export const signInWithGoogle = () => auth.signInWithPopup(provider);
+export const googleProvider = new firebase.auth.GoogleAuthProvider();
+googleProvider.setCustomParameters({
+  prompt: "select_account"
+});
+export const signInWithGoogle = () => auth.signInWithPopup(googleProvider);
 
 export default firebase;
