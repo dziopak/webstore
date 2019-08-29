@@ -41,4 +41,19 @@ export const checkUserSession = () => ({
   type: userActionTypes.CHECK_USER_SESSION
 });
 
+export const signUp = userData => ({
+  type: userActionTypes.SIGN_UP,
+  payload: userData
+});
+
+export const signUpSuccess = ({ user, data }) => ({
+  type: userActionTypes.SIGN_UP_SUCCESS,
+  payload: { user, data }
+});
+
+export const signUpFail = error => ({
+  type: userActionTypes.SIGN_UP_FAIL,
+  payload: error
+});
+
 export default setCurrentUser;

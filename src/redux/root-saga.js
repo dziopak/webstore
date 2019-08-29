@@ -4,12 +4,14 @@ import { collectionsFetch } from "./shop/shop.sagas";
 import { positionsFetch } from "./menu/menu.sagas";
 import { bestsellersFetch } from "./rankings/rankings.sagas";
 import { userSagas } from "./user/user.sagas";
+import { cartSagas } from "./cart/cart.sagas";
 
 export default function* rootSaga() {
   yield all([
     call(collectionsFetch),
     call(positionsFetch),
     call(bestsellersFetch),
-    call(userSagas)
+    call(userSagas),
+    call(cartSagas)
   ]);
 }
