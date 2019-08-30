@@ -18,7 +18,6 @@ const StripeButton = ({ price, clearCart }) => {
       }
     })
       .then(response => {
-        console.log(response);
         alert("Payment successful!");
         clearCart();
       })
