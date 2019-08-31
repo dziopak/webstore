@@ -1,5 +1,4 @@
 import rankingsActionTypes from "./rankings.types";
-import { firestore } from "./../../firebase/firebase.utils";
 
 export const bestsellersFetch = () => ({
   type: rankingsActionTypes.BESTSELLERS_FETCH

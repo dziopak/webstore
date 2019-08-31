@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 
 import { connect } from "react-redux";
-import { auth, createUserProfile } from "./../../firebase/firebase.utils";
 import { signUp } from "../../redux/user/user.actions";
 
 import FormInput from "./../form-input/form-input.component";

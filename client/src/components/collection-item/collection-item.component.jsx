@@ -9,7 +9,7 @@ import Button from "./../button/button.component";
 const CollectionItem = ({ item, addItem }) => {
   const { id, name, price, imageUrl } = item;
   return (
-    <div className="collection-item">
+    <div key={id} className="collection-item">
       <div
         className="collection-item__image"
         style={{ backgroundImage: `url(${imageUrl})` }}

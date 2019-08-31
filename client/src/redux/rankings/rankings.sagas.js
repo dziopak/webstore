@@ -1,4 +1,4 @@
-import { takeLatest, call, put } from "redux-saga/effects";
+import { takeLatest, put } from "redux-saga/effects";
 
 import { firestore } from "../../firebase/firebase.utils";
 import { bestsellersDidFetch, bestsellersFetchFail } from "./rankings.actions";
