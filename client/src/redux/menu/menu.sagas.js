@@ -8,7 +8,7 @@ import menuActionTypes from './menu.types';
 export function* positionsFetchAsync() {
   try {
     axios({
-      url: 'api/v1/tours',
+      url: `https://localhost:${process.env.PORT}/api/v1/tours`,
       method: 'get'
     }).then(data => {
       console.log(data);
