@@ -1,13 +1,19 @@
-import { takeLatest, put } from "redux-saga/effects";
+import { takeLatest, put } from 'redux-saga/effects';
+import axios from 'axios';
+import { firestore } from './../../firebase/firebase.utils';
+import { positionsDidFetch, positionsFetchFail } from './menu.actions';
 
-import { firestore } from "./../../firebase/firebase.utils";
-import { positionsDidFetch, positionsFetchFail } from "./menu.actions";
-
-import menuActionTypes from "./menu.types";
+import menuActionTypes from './menu.types';
 
 export function* positionsFetchAsync() {
   try {
-    const collectionRef = firestore.collection("menu-positions");
+    axios({
+      url: 'api/v1/tours',
+      method: 'get'
+    }).then(data => {
+      console.log(data);
+    });
+    const collectionRef = firestore.collection('menu-positions');
     const snapshot = yield collectionRef.get();
     const result = yield snapshot.docs.map(doc => {
       const { name, menus } = doc.data();

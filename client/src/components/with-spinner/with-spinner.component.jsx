@@ -1,5 +1,5 @@
-import React from "react";
-import "./with-spinner.style.scss";
+import React from 'react';
+import './with-spinner.style.scss';
 
 const WithSpinner = Component => ({ isLoaded, ...otherProps }) => {
   return !isLoaded ? (
