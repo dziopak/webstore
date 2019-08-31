@@ -1,7 +1,7 @@
 import React from "react";
 import "./with-spinner.style.scss";
 
-const Spinner = Component => ({ isLoaded, ...otherProps }) => {
+const WithSpinner = Component => ({ isLoaded, ...otherProps }) => {
   return !isLoaded ? (
     <div className="spinner">
       <div className="spinner__container"></div>
@@ -11,4 +11,4 @@ const Spinner = Component => ({ isLoaded, ...otherProps }) => {
   );
 };
 
-export default Spinner;
+export default WithSpinner;
