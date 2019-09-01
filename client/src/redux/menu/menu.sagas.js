@@ -4,24 +4,23 @@ import { firestore } from './../../firebase/firebase.utils';
 import { positionsDidFetch, positionsFetchFail } from './menu.actions';
 
 import menuActionTypes from './menu.types';
+const url = `http://localhost:8000/api/v1/menus`;
 
 export function* positionsFetchAsync() {
   try {
-    axios({
-      url: `https://localhost:${process.env.PORT}/api/v1/tours`,
+    const ref = yield axios({
+      url,
       method: 'get'
-    }).then(data => {
-      console.log(data);
     });
-    const collectionRef = firestore.collection('menu-positions');
-    const snapshot = yield collectionRef.get();
-    const result = yield snapshot.docs.map(doc => {
-      const { name, menus } = doc.data();
+    const { data } = ref.data;
+    const result = yield data.menus.map(doc => {
+      const { _id, name, menus, location } = doc;
 
       return {
         routeName: encodeURI(name.toLowerCase()),
-        id: doc.id,
+        id: _id,
         name,
+        location,
         menus
       };
     });

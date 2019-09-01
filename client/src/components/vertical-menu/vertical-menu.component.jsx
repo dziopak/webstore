@@ -1,7 +1,7 @@
-import React from "react";
-import "./vertical-menu.style.scss";
+import React from 'react';
+import './vertical-menu.style.scss';
 
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
 class VerticalMenu extends React.Component {
   state = {
@@ -9,9 +9,9 @@ class VerticalMenu extends React.Component {
   };
 
   render() {
-    const { items, name } = this.props;
+    const { items, name, id } = this.props;
     return (
-      <div className="menu-vertical">
+      <div key={id} className="menu-vertical">
         <ul className="menu-vertical__list">
           <li className="menu-vertical__item menu-vertical__item--header">
             {name}

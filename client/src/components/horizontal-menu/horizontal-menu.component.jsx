@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 
-import { createStructuredSelector } from "reselect";
-import { connect } from "react-redux";
+import { createStructuredSelector } from 'reselect';
+import { connect } from 'react-redux';
 
-import { positionsFetch } from "../../redux/menu/menu.actions";
-import { selectMenuPositions } from "../../redux/menu/menu.selectors";
+import { positionsFetch } from '../../redux/menu/menu.actions';
+import { selectMenuPositions } from '../../redux/menu/menu.selectors';
 
-import VerticalMenu from "./../vertical-menu/vertical-menu.component";
+import VerticalMenu from './../vertical-menu/vertical-menu.component';
 
-import "./horizontal-menu.style.scss";
+import './horizontal-menu.style.scss';
 
 const HorizontalMenu = ({ positionsFetch, positions }) => {
   useEffect(() => {
@@ -17,12 +17,11 @@ const HorizontalMenu = ({ positionsFetch, positions }) => {
 
   const [menuState, setMenuState] = useState({
     expand: false,
-    menus: {},
-    active: ""
+    menus: [],
+    active: ''
   });
 
   const { menus } = menuState;
-
   const expand = (active, menus) => {
     if (menuState.active === active) {
       setMenuState({
@@ -43,34 +42,32 @@ const HorizontalMenu = ({ positionsFetch, positions }) => {
   return (
     <div
       className={`menu-horizontal${
-        menuState.expand ? " menu-horizontal--expand" : ""
+        menuState.expand ? ' menu-horizontal--expand' : ''
       }`}
     >
       <ul className="menu-horizontal__main">
-        {positions.map(position => (
-          <li
-            key={position.id}
-            className="menu-horizontal__item"
-            onClick={() => expand(position.name, position.menus)}
-          >
-            {position.name}
-          </li>
-        ))}
+        {positions.map(position => {
+          return (
+            <li
+              key={position.id}
+              className="menu-horizontal__item"
+              onClick={() => expand(position.name, position.menus)}
+            >
+              {position.name}
+            </li>
+          );
+        })}
       </ul>
 
       <div className="menu-vertical__container">
-        {Object.keys(menus).map(menu => (
-          <VerticalMenu
-            key={menus[menu].id}
-            name={menus[menu].name}
-            items={menus[menu].items}
-          />
+        {menus.map((menu, index) => (
+          <VerticalMenu key={index} name={menu[0].name} items={menu[0].items} />
         ))}
       </div>
 
       <div
         className={`vertical-menu${
-          menuState.expand ? "" : "vertical-menu--hidden"
+          menuState.expand ? '' : 'vertical-menu--hidden'
         }`}
       ></div>
     </div>

@@ -1,18 +1,20 @@
-import { takeLatest, put } from "redux-saga/effects";
+import axios from 'axios';
+import { takeLatest, put } from 'redux-saga/effects';
 
-import { firestore } from "../../firebase/firebase.utils";
-import { bestsellersDidFetch, bestsellersFetchFail } from "./rankings.actions";
+import { firestore } from '../../firebase/firebase.utils';
+import { bestsellersDidFetch, bestsellersFetchFail } from './rankings.actions';
 
-import rankingsActionTypes from "./rankings.types";
+import rankingsActionTypes from './rankings.types';
 
+const url = `http://localhost:8000/api/v1/items`;
 export function* bestsellersFetchAsync() {
   try {
-    const collectionRef = firestore.collection("bestsellers");
-    const snapshot = yield collectionRef.orderBy("id", "asc").get();
-    const result = snapshot.docs.map(doc => {
-      return doc.data();
+    const ref = yield axios({
+      url: `${url}?limit=5&sort=-salesCount`,
+      method: 'get'
     });
-    yield put(bestsellersDidFetch(result));
+    const { data } = ref.data;
+    yield put(bestsellersDidFetch(data.items));
   } catch (err) {
     yield put(bestsellersFetchFail(err.message));
   }
