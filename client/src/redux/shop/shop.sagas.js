@@ -1,19 +1,20 @@
-import { takeLatest, call, put } from "redux-saga/effects";
+import axios from 'axios';
+import { takeLatest, call, put } from 'redux-saga/effects';
+import { convertCollections } from './../../utils/functions.js';
+import { collectionsDidFetch, collectionsFetchFail } from './shop.actions';
 
-import {
-  firestore,
-  convertCollectionsSnap
-} from "./../../firebase/firebase.utils";
-import { collectionsDidFetch, collectionsFetchFail } from "./shop.actions";
-
-import shopActionTypes from "./shop.types";
+import shopActionTypes from './shop.types';
 
 export function* collectionsFetchAsync() {
   try {
-    const collectionRef = firestore.collection("collections");
-    const snapshot = yield collectionRef.get();
-    const collections = yield call(convertCollectionsSnap, snapshot);
-    yield put(collectionsDidFetch(collections));
+    const url = `http://localhost:8000/api/v1/collections`;
+    const ref = yield axios({
+      url,
+      method: 'get'
+    });
+    const { collections } = ref.data.data;
+    const collections2 = yield call(convertCollections, collections);
+    yield put(collectionsDidFetch(collections2));
   } catch (err) {
     yield put(collectionsFetchFail(err.message));
   }

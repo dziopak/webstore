@@ -4,9 +4,9 @@ import { firestore } from './../../firebase/firebase.utils';
 import { positionsDidFetch, positionsFetchFail } from './menu.actions';
 
 import menuActionTypes from './menu.types';
-const url = `http://localhost:8000/api/v1/menus`;
+const url = `http://localhost:8000/api/v1/menus?location=1`;
 
-export function* positionsFetchAsync() {
+export function* mainMenuFetchAsync() {
   try {
     const ref = yield axios({
       url,
@@ -31,6 +31,5 @@ export function* positionsFetchAsync() {
 }
 
 export function* positionsFetch() {
-  console.log(menuActionTypes.POSITIONS_FETCH);
-  yield takeLatest(menuActionTypes.POSITIONS_FETCH, positionsFetchAsync);
+  yield takeLatest(menuActionTypes.POSITIONS_FETCH, mainMenuFetchAsync);
 }

@@ -23,6 +23,7 @@ const projectRouter = require('./routes/ProjectRoutes.js');
 const userRouter = require('./routes/UserRoutes.js');
 const menusRouter = require('./routes/menusRoutes.js');
 const itemRouter = require('./routes/itemRoutes.js');
+const collectionRouter = require('./routes/collectionRoutes.js');
 
 app.use((req, res, next) => {
   req.requestTime = new Date().toISOString();
@@ -49,6 +50,7 @@ app.use('/api/v1/projects', projectRouter);
 app.use('/api/v1/users', userRouter);
 app.use('/api/v1/menus', menusRouter);
 app.use('/api/v1/items', itemRouter);
+app.use('/api/v1/collections', collectionRouter);
 
 app.use(express.static(path.join(__dirname, 'client/build')));
 

@@ -1,12 +1,13 @@
-import React from "react";
-import { connect } from "react-redux";
+import React from 'react';
+import { connect } from 'react-redux';
 
-import CollectionItem from "../../components/collection-item/collection-item.component";
-import { selectCollection } from "./../../redux/shop/shop.selectors";
+import CollectionItem from '../../components/collection-item/collection-item.component';
+import { selectCollection } from './../../redux/shop/shop.selectors';
 
-import "./collection.style.scss";
+import './collection.style.scss';
 
 const CollectionPage = ({ match, collection }) => {
+  console.log('test');
   console.log(collection);
   return (
     <div className="collection-page">

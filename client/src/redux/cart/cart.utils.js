@@ -8,7 +8,6 @@ export const addItemToCart = (cartItems, newItem) => {
         : cartItem
     );
   }
-  console.log(existing);
   return [...cartItems, { ...newItem, quantity: 1 }];
 };
 

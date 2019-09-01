@@ -1,16 +1,16 @@
-import React, { useEffect, lazy, Suspense } from "react";
-import { Route, Switch } from "react-router-dom";
-import { connect } from "react-redux";
-import { collectionsFetch } from "./../../redux/shop/shop.actions";
-import Spinner from "../../components/spinner/spinner.component";
+import React, { useEffect, lazy, Suspense } from 'react';
+import { Route, Switch } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { collectionsFetch } from './../../redux/shop/shop.actions';
+import Spinner from '../../components/spinner/spinner.component';
 
 const CollectionContainer = lazy(() =>
-  import("../collection/collection.container")
+  import('../collection/collection.container')
 );
 const CollectionsOverviewContainer = lazy(() =>
-  import("../../components/collections-overview/collections-overview.container")
+  import('../../components/collections-overview/collections-overview.container')
 );
-const CheckoutPage = lazy(() => import("../checkout/checkout.component"));
+const CheckoutPage = lazy(() => import('../checkout/checkout.component'));
 
 const ShopPage = ({ collectionsFetch, match }) => {
   useEffect(() => {
